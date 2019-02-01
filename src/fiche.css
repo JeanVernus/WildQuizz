@@ -1,0 +1,33 @@
+#boxFichePlayer{
+    background-color: grey;
+    border: 30px solid darkgray;
+    width: 1100px;
+    text-align: center;
+    margin: auto;
+}
+#txtGetAvatar{
+    text-align: center;
+    color: green;
+}
+#IdentificatorGithub{
+text-align: center;
+margin: auto;
+margin-top: 300px;
+width: 400px;
+height: 400px;
+border: solid black 3px;
+box-shadow: 2px 4px 0px;
+
+}
+#centerIdentificator{
+    text-align: center;
+    margin-top: 25%;
+}
+#txtValidPseudo{
+    color: green;
+    display: none;
+}
+#txtIdGithub{
+    text-align: center;
+    
+}
