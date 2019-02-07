@@ -85,7 +85,7 @@ render(){
     <h2>Rejoindre un salon</h2>
     </div>
     <div id="IdentificatorGithub">
-    <img id="IconGithub" src="https://img.icons8.com/windows/104/000000/github.png"/>
+    <img id="IconGithub" src="https://img.icons8.com/windows/104/000000/github.png"alt =""/>
     <h3>Identifiez vous avec Github</h3>
     <div id="centerIdentificator">
     <input id="nickBox" type="text"/>

@@ -3,6 +3,8 @@ import interro2 from "./interro2.png"
 import interro3 from "./interro3.png"
 import Formulaire from "./Formulaire";
 import Questions from "./Questions";
+import Quiz from "./Quiz";
+import bdd from "./game.json";
 
 
 
@@ -15,6 +17,7 @@ class App extends Component {
     super(props);
     let etat = DEBUT;
     this.state = {etat}
+    this.quiz = new Quiz(bdd);
     
   }
 
@@ -32,8 +35,8 @@ class App extends Component {
       return (<Formulaire/>)}
 
     if (this.state.etat === QUESTION){
-      return(<Questions/>)}
-
+      return(<Questions quiz={this.quiz}/>)
+    }
     return (
       <div>
         <header>
@@ -43,7 +46,7 @@ class App extends Component {
             
             <input className="bt1"value="PLAYER" type="button" onClick ={this.choicePlayers} />
             <input className="bt2" value="MASTER" type="button"onClick ={this.pressMaster}/>
-        
+            
           </div>
         </div>
     );

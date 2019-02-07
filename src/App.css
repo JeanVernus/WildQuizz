@@ -67,18 +67,28 @@ body{
 .texte1{
   font-size : 35px;
   border : 4px double black;
-  
-}
+  }
 .texte2{
   font-size : 35px;
   color : white;
+  }
+.texte3{
   
+  float: left; 
+}
+.texte4{
+  
+  margin: auto;
 }
 .avatar{
   border : 4px double black ;
 }
 .Question1{
   margin : auto;
+}
+.img_reponse{
+float : left;
+
 }
 
 

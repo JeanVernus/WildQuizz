@@ -1,5 +1,4 @@
 import React from "react"
-import Player from "./Player"
 import "./fiche.css"
 
 
@@ -7,8 +6,6 @@ class FichePlayer extends React.Component{
     constructor(props){
         super(props);
         let imgSrc = "";
-        let playerName = "";
-        let playerScore = 0;
         this.state = {imgSrc}
         
     }
