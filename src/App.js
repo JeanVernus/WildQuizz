@@ -48,16 +48,27 @@ class App extends Component {
     }
     return (
       <div>
-        <header>
-          <h1><img className="ptBt" src={interro2}alt=""/> Wild Quiz<img className="ptBt1"src={interro3}alt=""/></h1>
-        </header>
-          <div>
-            
-            <input className="bt1"value="CHOICE" type="button" onClick ={this.pressPlayer} />
-            <input className="bt2" value="MASTER" type="button"onClick ={this.pressMaster}/>
-            
-          </div>
+      <header>
+      <ul id="navbar">
+                  <li class="active"><a>WildQuiz</a></li>
+                  <li><a >Porfile</a></li>
+                  <li><a>Best gamers</a></li>
+          </ul>
+      </header>
+        <div>
+          
+          <input className="bt1"value="PLAYER" type="button" onClick ={this.choicePlayers} />
+          <input className="bt2" value="MASTER" type="button"onClick ={this.pressMaster}/>
+      
         </div>
+        <footer>
+          <p>
+                                          
+            WildQuiz
+                                      
+          </p>
+        </footer>
+      </div>
     );
   }
 }
