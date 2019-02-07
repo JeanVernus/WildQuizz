@@ -55,6 +55,52 @@ class Quiz{
         //ont retourne la variable retour
         return retour;
     }
-}
+    nbQuestionInStepInGames=(numGame,numStep)=>{
+        let retour = 0;
+        let indexGame = 0;
+        let indexStep = 0;
+        if (numGame < 0) return 0; 
+        if (numGame >= this.nbGames()) return 0;
+        if (numStep<0) return 0;
+        if (numStep >= this.nbStepInGames()) return 0;
 
+        for (let i = 0 ; i < this.jsonData.slides[i]; i ++){
+            if (this.jsonData.slides[i].type!=="game"){// si le contenu de la propriété type est différent de la chaine de caractère "game"
+                continue; 
+            }// ont recommence directement la boucle sans éxecuter les instructions de la boucles dessous
+            if (this.jsonData.slides[i].type!=="step"){// si le contenu de la propriété type est différent de la chaine de caractère "step"
+                continue; // ont recommence directement la boucle sans éxecuter les instructions de la boucles dessous
+            }
+            if (indexGame !== numGame){// si la variable indexGame est différente de numGame
+                indexGame ++;// indexGame + 1
+                continue;// ont recommence la boucle
+            }
+            if (indexStep !== numStep){// si la variable indexStep est différente de numStep
+                indexStep ++;// indexStep + 1
+                continue;// ont recommence la boucle
+            }
+            for (let j = i+1; j < this.jsonData.slides.length; j++){// ont parcour toutes les slides 
+                if (this.jsonData.slides[j].type==="game"){//quand une des propriétées type de nos slides est égale à "game"
+                    //ont renvoie retour
+                    return retour;
+                }
+                for (let j = i+1; j < this.jsonData.slides.length; j++){// ont parcour toutes les slides 
+                    if (this.jsonData.slides[j].type==="step"){//quand une des propriétées type de nos slides est égale à "step"
+                         //ont renvoie retour
+                        return retour;
+                    }
+                     if (this.jsonData.slides[j].type === "question"){
+                        //retour + 1
+                        retour++;
+                    }
+                }
+
+            }
+    
+        }
+    }
+    
+    
+}
+console.log(nbQuestionInStepInGames(1, 3));
 export default Quiz;

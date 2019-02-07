@@ -6,8 +6,6 @@ import React from 'react';
 class Items1 extends React.Component{
     constructor(props){
     super(props);
-    let items = "";
-    this.state = {items};
     }
     
 
