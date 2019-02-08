@@ -6,11 +6,12 @@ html, body {
     font-family: 'Playfair Display', serif;
 }
 body {
-    margin: 0;
+   height: 1800px;
     background-color: rgb(244, 240, 245);
     -webkit-background-blend-mode: overlay;
     -moz-background-blend-mode: overlay;
     background-blend-mode: overlay;
+    margin-bottom: 77px;
 }
 
 
@@ -118,6 +119,19 @@ footer {
   border : 2px solid rgb(224, 224, 224);
   border-radius: 16px;
 }
+
+.bt3{
+  height : 100px;
+  width : 300px;
+  margin-left: 39%;
+  background: radial-gradient(rgb(20, 18, 18), rgb(71, 44, 71));
+  color : white;
+  font-size: 30px;
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color:rgb(207, 155, 207);
+  border : 2px solid rgb(224, 224, 224);
+  border-radius: 16px;
+}
 .ptBt{
   animation: tourne infinite 2s linear;
 }
@@ -136,23 +150,13 @@ h1
 
 }
 
-@keyframes tourne{
-	from {
-	transform: rotateY(360deg);
-	}
-	to {
-	transform: rotate(0deg);
-	}
-
+.placement
+{
+  align-items: center;
+	text-align: center;
 }
 
-@keyframes tourne1{
-	from {
-	transform: rotate(0deg);
-	}
-	to {
-	transform: rotateY(360deg);
-	}
-
+.texte1
+{
+  margin-top: 77px;
 }
-

@@ -20,9 +20,12 @@ class App extends Component {
     let etat = DEBUT;
     this.state = {etat}
     this.quiz = new Quiz(bdd);
-    
+    let test = 10;
+    this.state={test};
   }
+afficheQuestion=()=>{console.log("okki");
 
+  this.setState({test:document.getElementById("numQuest").value})}
   choicePlayers=()=>{
     //this.state.etat = FORMULAIRE;
     this.setState ({etat:FORMULAIRE});
@@ -44,7 +47,13 @@ class App extends Component {
       return(<Questions quiz={this.quiz}/>)
     }
     if (this.state.etat === PLAYER){
-      return(<User quiz={this.quiz} numQuest={8}/>)
+      return(
+      <div>
+        <input class ="texte1"id="numQuest" type="text"/> 
+        <input class="texte1"value="Afficher question" onClick={this.afficheQuestion} type="button"/>
+        <User quiz={this.quiz} numQuest={this.state.test}/>
+        </div>
+        )
     }
     return (
       <div>
@@ -57,8 +66,9 @@ class App extends Component {
       </header>
         <div>
           
-          <input className="bt1"value="PLAYER" type="button" onClick ={this.choicePlayers} />
+          <input className="bt1"value="LOGIN" type="button" onClick ={this.choicePlayers}/>
           <input className="bt2" value="MASTER" type="button"onClick ={this.pressMaster}/>
+          <input className="bt3" value="PLAYER" type="button"onClick ={this.pressPlayer}/>
       
         </div>
         <footer>
