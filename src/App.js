@@ -20,9 +20,12 @@ class App extends Component {
     let etat = DEBUT;
     this.state = {etat}
     this.quiz = new Quiz(bdd);
-    
+    let test = 10;
+    this.state={test};
   }
+afficheQuestion=()=>{console.log("okki");
 
+  this.setState({test:document.getElementById("numQuest").value})}
   choicePlayers=()=>{
     //this.state.etat = FORMULAIRE;
     this.setState ({etat:FORMULAIRE});
@@ -57,7 +60,15 @@ class App extends Component {
             <input className="bt2" value="MASTER" type="button"onClick ={this.pressMaster}/>
             <input className="bt2"value="PLAYER" type="button" onClick ={this.choicePlayers} />
           </div>
-        </div>
+        
+        <footer>
+          <p>
+                                          
+            WildQuiz
+                                      
+          </p>
+        </footer>
+      </div>
     );
   }
 }
