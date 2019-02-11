@@ -28,7 +28,7 @@ afficheQuestion=()=>{
         this.setState({questionToDisplay:this.props.quiz.jsonData.slides[idQuest].title, 
             imageToDisplay: this.props.quiz.jsonData.slides[idQuest].asset,
             reponseToDisplay:<Items1 quiz={this.quiz} numQuest={idQuest}/>})
-    else if (this.props.quiz.jsonData.slides[idQuest].Question.choices.hasOwnProperty("asset"))
+    else if (this.props.quiz.jsonData.slides[idQuest].choices.hasOwnProperty("asset"))
         this.setState({questionToDisplay:this.props.quiz.jsonData.slides[idQuest].title, 
             imageToDisplay: "",
             reponseToDisplay:<Items quiz={this.quiz} numQuest={idQuest}/>})

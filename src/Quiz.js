@@ -94,7 +94,7 @@ class Quiz{
                         retour++;
                     }
                 }
-
+                return retour;
             }
     
         }
@@ -102,5 +102,5 @@ class Quiz{
     
     
 }
-console.log(nbQuestionInStepInGames(1, 3));
+
 export default Quiz;
