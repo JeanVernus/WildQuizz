@@ -8,12 +8,12 @@ class Choice extends React.Component{
     render(){
         if (this.props.num.hasOwnProperty("asset"))
             return(<div>
-                <p>{this.props.num.text}</p>
-                <img src={require("./"+this.props.num.asset)} />
+                <p className ="repospace">{this.props.num.text}</p>
+                <img src={require("./"+this.props.num.asset)} alt=""/>
                 
             </div>)
         return (<div>
-            <p>{this.props.num.text}</p>
+            <p className ="repospace">{this.props.num.text}</p>
         </div>)
         
        

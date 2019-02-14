@@ -17,6 +17,7 @@ class Quiz{
                 retour++;
             }
         }
+
          //ont retourne retour, c'est à dire que quand ont appelera notre fonction nbGames, elle nous renverra la variable retour.
         return retour;
     }

@@ -1,16 +1,22 @@
 
-header{
-  background-color: magenta;
-}
-
-
-
 body{
-  background : url("fond.png");
-  background : cover;
+  background-image: linear-gradient(to left, #F64733, #F85743, #F96553, #FA7363, #FA8072);
   min-height: 611px;
   width: 100%;
   
+}
+.bt0{
+  height : 100px;
+  width : 300px;
+  float : right;
+  margin-right :20%;
+  margin-top: 15%;
+  background: radial-gradient(black, whitesmoke);
+  color : blue;
+  font-size: 30px;
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color:black;
+  border : 2px solid black;
 }
 .bt1{
   height : 100px;
@@ -18,44 +24,70 @@ body{
   float : right;
   margin-right :20%;
   margin-top: 15%;
-  background: radial-gradient(black, darkmagenta);
   color : white;
   font-size: 30px;
   -webkit-text-stroke: 2px;
-  -webkit-text-stroke-color: darkmagenta;
+  -webkit-text-stroke-color:black;
   border : 2px solid black;
 }
-.ptBt1{
-  animation: tourne1 infinite 2s linear;
 
-}
+
 .bt2{
   height : 100px;
   width : 300px;
   margin-left: 20%;
   margin-top: 15%;
-  background: radial-gradient(black, darkmagenta);
+  background: radial-gradient(black,);
   color : white;
   font-size: 30px;
   -webkit-text-stroke: 2px;
-  -webkit-text-stroke-color:darkmagenta;
+  -webkit-text-stroke-color:black;
   border : 2px solid black;
 }
-.ptBt{
-  animation: tourne infinite 2s linear;
-}
+
 .bt3{
   height : 100px;
   width : 300px;
-  margin-left: 20%;
-  margin-top: 15%;
-  background: radial-gradient(black, darkmagenta);
+  margin-left:0.65%;
+  background: radial-gradient(black);
   color : white;
   font-size: 30px;
   -webkit-text-stroke: 2px;
-  -webkit-text-stroke-color:darkmagenta;
+  -webkit-text-stroke-color:black;
   border : 2px solid black;
-  float : left;  
+}
+.bt4{
+  height : 100px;
+  width : 300px;
+  background: radial-gradient(black);
+  color : white;
+  font-size: 30px;
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color:black;
+  border : 2px solid black;
+
+}
+.bt5{
+  height : 100px;
+  width : 600px;
+  background: radial-gradient(black);
+  color : white;
+  font-size: 30px;
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color:black;
+  border : 2px solid black;
+}
+.bt6{
+  height : 100px;
+  width : 1500px;
+  background: radial-gradient(black);
+  color : white;
+  font-size: 30px;
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color:black;
+  border : 2px solid black;
+  float : left;
+  margin-bottom : 50%;
 }
 .texte{
   margin-top : 17%;
@@ -64,82 +96,62 @@ body{
   background : black;
   color : white;
 }
-.texte1{
-  font-size : 35px;
-  border : 4px double black;
-  }
-.texte2{
-  font-size : 35px;
-  color : white;
-  }
-.texte3{
-  
-  float: left; 
+.question{
+  display : flex;
 }
-.texte4{
-  
-  margin: auto;
+.reponse{
+  display : flex ;
+  flex-direction : column;
+  font-size: 1.6em;
 }
-.avatar{
-  border : 4px double black ;
+.reponseImage{
+  display : flex;
+  flex-wrap : wrap;
+  margin-left: 26%;
+  margin-right: 10%;
+  font-size: 1.6em;
 }
-.Question1{
-  margin : auto;
+.reponseImage img{
+ width: 70%;
 }
-.img_reponse{
-float : left;
-
+.title{
+  font-size : 2em;
 }
 
+ .repospace{
+margin-left: 21px;
+ }
 
 h1
 {
   font-size : 130px;
-  color:darkmagenta;
-  border : 8px double darkmagenta;
+  color : whitesmoke;
+  border : 8px double black;
   font-family : cursive;
   text-align: center;
   margin : auto;
-  -webkit-text-stroke: 3px;
+  -webkit-text-stroke: 6px;
   -webkit-text-stroke-color: black;
+  background: radial-gradient(black,);
   ;
 
 }
 h2
 {
   font-size : 50px;
-  color:darkmagenta;
-  border : 8px double darkmagenta;
+  color: whitesmoke;
+  border : 8px double black;
   font-family : cursive;
   text-align: center;
   margin : auto;
   -webkit-text-stroke: 2px;
   -webkit-text-stroke-color: black;
-  background-color: magenta;
+  
   ;
 
 }
 
 
-@keyframes tourne{
-	from {
-	transform: rotateY(360deg);
-	}
-	to {
-	transform: rotate(0deg);
-	}
-
-}
-
-@keyframes tourne1{
-	from {
-	transform: rotate(0deg);
-	}
-	to {
-	transform: rotateY(360deg);
-	}
-
-}
 #boxFichePlayer{
   background-color: grey;
   border: 30px solid darkgray;
