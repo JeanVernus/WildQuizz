@@ -1,162 +1,324 @@
+@import url('https://fonts.googleapis.com/css?family=Merienda');
 
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
-
-html, body {
-    height: 100%;
-    font-family: 'Playfair Display', serif;
-}
-body {
-   height: 1800px;
-    background-color: rgb(244, 240, 245);
-    -webkit-background-blend-mode: overlay;
-    -moz-background-blend-mode: overlay;
-    background-blend-mode: overlay;
-    margin-bottom: 77px;
+html{
+  font-family: 'Merienda', cursive;
 }
 
+body{
+  background : url("./bkgr.jpg");
+  background-size: 790px 1000px;
+  background-size: cover;
+  margin : 0;
 
-#navbar {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  height: 60px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background: #322F32;
-  font-size: 18px;
-  font-weight: 300;
 }
-
-#navbar li {
-  position: relative;
-  float: left;
-  line-height: 60px;
-  background: inherit;
-  text-align: center;
-  transition: all .2s;
+header{
+  background-color : black;
+  position :absolute;
+  color : white;
+  text-align : center;
 }
-
-#navbar li a {
-  position: relative;
-  display: block;
-  padding: 0 20px;
-  line-height: inherit;
-  color: white;
-  text-decoration: none;
+h1{
+  margin : 0;
+  padding-right:10px;
+  padding-left:10px;
+  padding-top :10px;
+  padding-bottom:10px;
 }
-
-#navbar li:before {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 50%;
-  margin-left: -30px;
-  width: 60px;
-  height: 60px;
-  background: #322F32;
-  border-radius: 50%;
-  transform: rotate(45deg);
-  transition: all 0, background .2s;
-}
-#navbar li:hover:before {
-  margin-top: 1px;
-  border-radius: 50% 50% 0 50%;
-  transition: all .1s, background .2s, margin-top .2s cubic-bezier(.5,30,.2,0);
-}
-#navbar li:hover,
-#navbar li:hover:before {
-  background: #3a3a3a;
-}
-#navbar li.active,
-#navbar li.active:before {
-  background:#2A0627;
-}
-
-footer {
-  background:#2A0627;
+  .saumon{
+    color : #f68a6a
+  
+  }
+  .title{
+  text-align : center;
+  border : #f68a6a;
+  background :#f68a6a;
+  color : white;
+  }
+  footer {
+  background : black;
   bottom: 0;
   left: 0;
-  
-  position: fixed;
+  position:fixed;
   right: 0;
   text-align: center;
   color: white;
-  font-size: 30px;
-}
+  font-size  : 25px;
+ 
+  }
+
+  @-webkit-keyframes hvr-bob {
+    0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    }
+    50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+    }
+    100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    }
+    }
+    @keyframes hvr-bob {
+    0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    box-shadow: 0px 30px 10px #ffe098;
+    }
+    
+    50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+    
+    
+    
+    }
+    
+    100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    box-shadow:0px 8px 0px #eed9aa;
+    
+    }
+    }
+    @-webkit-keyframes hvr-bob-float {
+    100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    box-shadow: 0px 30px 10px #fbefd1;
+    }
+    }
+    @keyframes hvr-bob-float {
+    100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    box-shadow: 0px 30px 10px #fbd786;
+    }
+    }
+    .hvr-bob {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0px 8px 10px#fbd786;
+    margin :auto;
+    margin-top : 13%;
+    height : 160px;
+    width : 160px;
+    border-radius: 50%;
+    border : white;
+    background: radial-gradient(#f37954, #f8b9a6 );
+    color : white;
+    font-size : 24px;
+    font-family: 'Merienda', cursive;
+    font-weight: bolder;
+    text-shadow: 0px 5px 0px black
+     }
+    .hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
+    -webkit-animation-name: hvr-bob-float, hvr-bob;
+    animation-name: hvr-bob-float, hvr-bob;
+    -webkit-animation-duration: .3s, 1.5s;
+    animation-duration: .3s, 1.5s;
+    -webkit-animation-delay: 0s, .3s;
+    animation-delay: 0s, .3s;
+    -webkit-animation-timing-function: ease-out, ease-in-out;
+    animation-timing-function: ease-out, ease-in-out;
+    -webkit-animation-iteration-count: 1, infinite;
+    animation-iteration-count: 1, infinite;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-direction: normal, alternate;
+    animation-direction: normal, alternate;
+    }
+    .div-button{
+      display : flex;
+      justify-content :center;
+    }
+    .authButton{
+    box-shadow: 0px 8px 10px#fbd786;
+    margin-top : 13%;
+    height : 160px;
+    width : 320px;
+    border : white;
+    background: radial-gradient(#f37954, #f8b9a6 );
+    color : white;
+    font-size : 24px;
+    font-family: 'Merienda', cursive;
+    font-weight: bolder;
+    text-shadow: 0px 5px 0px black;
+    margin: auto;
+    border-radius : 10%;
+    }
+
+    .ficheButton
+    {
+    box-shadow: 0px 8px 10px#fbd786;
+    height : 80px;
+    width : 160px;
+    border : white;
+    background: radial-gradient(#f37954, #f8b9a6 );
+    color : white;
+    font-size : 24px;
+    font-family: 'Merienda', cursive;
+    font-weight: bolder;
+    text-shadow: 0px 5px 0px black;
+    margin: auto;
+    border-radius : 10%;
+    }
+    .ficheButton1
+    {
+    border : white;
+    background: linear-gradient(#f37954, #f8b9a6 );
+    color : white;
+    font-size : 20px;
+    font-family: 'Merienda', cursive;
+    font-weight: bolder;
+    text-shadow: 0px 5px 0px black;
+    margin-top : 25%;
+    border-radius : 10%;
+    padding: 3px
+;    }
+    .ficheButton2
+    {
+    box-shadow: 0px 8px 10px#fbd786;
+    height : 50px;
+    width : 300px;
+    border : white;
+    background: radial-gradient(#f37954, #f8b9a6 );
+    color : white;
+    font-size : 24px;
+    font-family: 'Merienda', cursive;
+    font-weight: bolder;
+    
+    
+    margin-top : 15%;
+    border-radius : 10%;
+    }
+    .ecran1{
+      width : 700px;
+      margin : auto;
+      background : rgb(231, 230, 230);
+      box-shadow: -8px 15px 50px black;
+      border-radius : 5px;
+      margin-top : 2%;
+    
+      margin-bottom: 10%
+    }
+    .ecran1 img {
+     padding : 5%;
+    }
+    .ecran1 p {
+      font-size : 0.8em;
+    }
+    
+    .ecran{
+      max-width : 900px;
+      margin : auto;
+      background : white;
+      box-shadow: -8px 15px 50px black;
+      border-radius : 5px;
+      margin-top : 2%;
+    }
+    .ecran img {
+      border : 2px solid black;
+      margin : auto;
+    }
+    .question{
+      display : flex;
+      }
+      .reponse{
+      display : flex ;
+      flex-direction : column;
+      font-size: 1.6em;
+      }
+      .reponseImage{
+      display : flex;
+      flex-wrap : wrap;
+      margin-left: 20%;
+      margin-right: 10%;
+      font-size: 1.6em;
+      display : inline-flex;
+      }
+     
+      .title1{
+      font-size : 2em;
+      text-align: center;
+      border : 2px solid #f68a6a;
+      border-radius : 5px;
+      margin : auto
+      }
+      .flex{
+        display :flex;
+        
+      }
+      .flex1{
+        display :flex;
+        flex-direction : column;
+      }
+      .flex1 select{
+        box-shadow: 0px 8px 10px#fbd786;
+        height : 50px;
+        width : 300px;
+        border : white;
+        background: radial-gradient(#f37954, #f8b9a6 );
+        color : white;
+        font-size : 24px;
+        font-family: 'Merienda', cursive;
+        font-weight: bolder;
+        border-radius : 10%;
+        box-shadow: -8px 15px 50px black;
+      }
+      .flex1 option{
+        color : black;
+      }
+      .cssChoice{
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 15%;
+        border : 3px double #f68a6a;
+        background: rgb(240, 240, 240);
+        font-size : 20px;
+        color : #f68a6a;
 
 
-.bt1{
-  height : 100px;
-  width : 300px;
-  float : right;
-  margin-right :20%;
-  margin-top: 15%;
-  
-  background: radial-gradient(rgb(20, 18, 18), rgb(71, 44, 71));
-  color : white;
-  font-size: 30px;
-  -webkit-text-stroke: 2px;
-  -webkit-text-stroke-color:rgb(207, 155, 207);
-  border : 2px solid rgb(224, 224, 224);
-  border-radius: 16px;
-}
-.ptBt1{
-  animation: tourne1 infinite 2s linear;
+      }
+      .cssChoiceQuestions{
+        display: flex;
+      }
+      .cssJustChoices{
+        display: flex;
+        flex-direction: column;
+        
+      }
+      .horloge{
+        margin-right : 5%;
+        border: 6px solid #f68a6a ;  
+        height : 150px;
+        width : 150px;
+        border-radius : 50%;
+        box-shadow: -6px 8px 20px black;
+      }
+      .horloge1{
+        margin-right : 5%;
+        border: 6px solid #f68a6a ;  
+        height : 150px;
+        width : 150px;
+        border-radius : 50%;
+        box-shadow: -6px 8px 20px black;
+      }
+     .displayHorloge{
+        display : flex;
+        justify-content: flex-end;
+      }
 
-}
-.bt2{
-  height : 100px;
-  width : 300px;
-  margin-left: 20%;
-  margin-top: 15%;
-  background: radial-gradient(rgb(20, 18, 18), rgb(71, 44, 71));
-  color : white;
-  font-size: 30px;
-  -webkit-text-stroke: 2px;
-  -webkit-text-stroke-color:rgb(207, 155, 207);
-  border : 2px solid rgb(224, 224, 224);
-  border-radius: 16px;
-}
-
-.bt3{
-  height : 100px;
-  width : 300px;
-  margin-left: 39%;
-  background: radial-gradient(rgb(20, 18, 18), rgb(71, 44, 71));
-  color : white;
-  font-size: 30px;
-  -webkit-text-stroke: 2px;
-  -webkit-text-stroke-color:rgb(207, 155, 207);
-  border : 2px solid rgb(224, 224, 224);
-  border-radius: 16px;
-}
-.ptBt{
-  animation: tourne infinite 2s linear;
-}
-
-h1
-{
-  font-size : 130px;
-  color:rgb(255, 255, 255);
-  border : 8px double rgb(110, 106, 110);
-  font-family : cursive;
-  text-align: center;
-  margin : auto;
-  -webkit-text-stroke: 3px;
-  
-  ;
-
-}
-
-.placement
-{
-  align-items: center;
-	text-align: center;
-}
-
-.texte1
-{
-  margin-top: 77px;
-}
+      h4{
+        text-align: center;
+        font-size : 34px;
+        color : #f68a6a ;
+        background: rgb(240, 240, 240);
+        
+      }
+      .h1{
+        padding : 5%;
+      }

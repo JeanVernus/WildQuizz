@@ -2,6 +2,7 @@ import React from "react"
 import FichePlayer from "./FichePlayer";
 import Player from "./Player";
 import "./fiche.css"
+import Swal from "sweetalert2";
 
 const defaut = 0;
 const activated = 1;
@@ -34,7 +35,11 @@ getAvatar(){
 //console.log(sucess);
   if (sucess.total_count !== 1) 
   {
-    alert("Username not valid")
+    Swal.fire({
+      type : "error",
+      title : "Oops...",
+      text : "Pseudo introuvable"
+    })
     this.setState({displaySucess: defaut})
   }
   else{
@@ -64,8 +69,33 @@ render(){
     if (this.state.displayFiche === activated){
       let player = new Player(this.state.globalPseud, this.state.avatar, 0)
       return(
-       
-        <FichePlayer source ={player} />
+       <div>
+          <div>
+                <header>
+          
+          <h1>
+          <span className="navbar active saumon">W</span>
+          <span>ild</span>
+          <span className ="saumon">Q</span>
+          <span>uiz</span>
+          </h1>
+    </header>
+          <h1 className = "title"> PLAYER</h1>
+    
+  <div>
+
+  </div>
+      <footer>
+     <h3>
+       <span className="saumon">W</span>
+          <span>ild</span>
+          <span className ="saumon">Q</span>
+          <span>uiz</span>
+    </h3> 
+      </footer>
+      </div>
+        <FichePlayer key={"FichePlayer"} source ={player} />
+        </div>
       )
     }
     if (this.state.displaySucess === activated){
@@ -73,16 +103,61 @@ render(){
     
       return(
         <div>
-        <h2>Authentification</h2>
+          <header>
+          
+          <h1>
+          <span className="navbar active saumon">W</span>
+          <span>ild</span>
+          <span className ="saumon">Q</span>
+          <span>uiz</span>
+          </h1>
+    </header>
+          <h1 className = "title"> Authentification</h1>
+    
+  <div>
+
+  </div>
+      <footer>
+     <h3>
+       <span className="saumon">W</span>
+          <span>ild</span>
+          <span className ="saumon">Q</span>
+          <span>uiz</span>
+    </h3> 
+      </footer>
+  
         <div id="boxValidate"><h4 id="txtGetAvatar">Avatar récupéré avec succès</h4>
-        <div> <input type="button" onClick={this.redirectFiche} value="Afficher la fiche player"/></div></div>
+        <div className="div-button"> <input className="authButton"type="button" onClick={this.redirectFiche} value="Afficher la fiche player"/></div></div>
         </div>
       )
     }
   return(<div>
     <div>
+    <div>
+                <header>
+          
+          <h1>
+          <span className="navbar active saumon">W</span>
+          <span>ild</span>
+          <span className ="saumon">Q</span>
+          <span>uiz</span>
+          </h1>
+    </header>
+          <h1 className = "title"> Rejoindre un salon</h1>
     
-    <h2>Rejoindre un salon</h2>
+  <div>
+
+  </div>
+      <footer>
+     <h3>
+       <span className="saumon">W</span>
+          <span>ild</span>
+          <span className ="saumon">Q</span>
+          <span>uiz</span>
+    </h3> 
+      </footer>
+      </div>
+    
     </div>
     <div id="IdentificatorGithub">
     <img id="IconGithub" src="https://img.icons8.com/windows/104/000000/github.png"alt =""/>

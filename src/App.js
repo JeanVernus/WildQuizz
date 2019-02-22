@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import interro2 from "./interro2.png"
-import interro3 from "./interro3.png"
 import Formulaire from "./Formulaire";
-import Questions from "./Questions";
-import User from "./User.js";
+import Master from "./Master";
 import Quiz from "./Quiz";
 import bdd from "./game.json";
-
+import MessToSend from "./MessToSend";
+import Items1 from "./Items1";
+import socketIOClient from "socket.io-client";
+import {ENDPOINT} from "./const";
 
 
 const DEBUT = 0;
@@ -14,18 +14,26 @@ const FORMULAIRE = 1;
 const QUESTION = 2;
 const PLAYER =3;
 
+
 class App extends Component {
   constructor (props){
     super(props);
     let etat = DEBUT;
-    this.state = {etat}
+    this.state = {
+      redirectState : 0,
+      etat,
+      message : new MessToSend("","","",""),
+      isMessageReceived: "no",
+      endPoint : ENDPOINT
+    }
     this.quiz = new Quiz(bdd);
-    let test = 10;
-    this.state={test};
+    
   }
-afficheQuestion=()=>{console.log("okki");
+  redirectItem =()=>{
 
-  this.setState({test:document.getElementById("numQuest").value})}
+    this.setState({redirectState: 1})
+       }
+
   choicePlayers=()=>{
     //this.state.etat = FORMULAIRE;
     this.setState ({etat:FORMULAIRE});
@@ -39,35 +47,62 @@ afficheQuestion=()=>{console.log("okki");
     this.setState({etat:PLAYER});
   }
 
+  componentDidMount(){
+    const socket = socketIOClient(this.state.endPoint)
+    socket.on("objet",(obj)=>{
+        console.log("ok");
+    var receivedObj = JSON.parse(obj);
+    this.setState({message : receivedObj})    
+    this.setState({isMessageReceived: "yes"})
+    })
+    }
+
   render() {
+    
+    if(this.state.redirectState === 1){
+      return <div>
+      
+      <Items1  key={"items1"} quiz={this.quiz}/>
+      </div>
+    }
     if(this.state.etat === FORMULAIRE){
-      return (<Formulaire/>)}
+      return (<Formulaire/>)
+    }
 
     if (this.state.etat === QUESTION){
-      return(<Questions quiz={this.quiz}/>)
+      return(<Master/>)
     }
-    if (this.state.etat === PLAYER){
-      return(<User quiz={this.quiz} numQuest={8}/>)
-    }
+    
     return (
       <div>
         <header>
-          <h1><img className="ptBt" src={interro2}alt=""/> Wild Quiz<img className="ptBt1"src={interro3}alt=""/></h1>
+          
+              <h1>
+              <span className="navbar active saumon">W</span>
+              <span>ild</span>
+              <span className ="saumon">Q</span>
+              <span>uiz</span>
+              </h1>
         </header>
-          <div>
-            
-            <input className="bt1"value="CHOICE" type="button" onClick ={this.pressPlayer} />
-            <input className="bt2" value="MASTER" type="button"onClick ={this.pressMaster}/>
-            <input className="bt2"value="PLAYER" type="button" onClick ={this.choicePlayers} />
-          </div>
+              <h1 className = "title"> Testez vos conaissances</h1>
         
-        <footer>
-          <p>
-                                          
-            WildQuiz
-                                      
-          </p>
-        </footer>
+      <div>
+
+      </div>
+          <footer>
+         <h3>
+           <span className="saumon">W</span>
+              <span>ild</span>
+              <span className ="saumon">Q</span>
+              <span>uiz</span>
+        </h3> 
+          </footer>
+      <div className="div-button">
+            
+            <input className="hvr-bob" value="PLAYER" type="button" onClick ={this.choicePlayers}/>
+            <input className="hvr-bob" value="MASTER" type="button"onClick ={this.redirectItem}/>
+
+          </div>
       </div>
     );
   }
