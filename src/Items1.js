@@ -53,8 +53,9 @@ class Items1 extends React.Component{
                 console.log(newResponse);
             
             const existingResponse = this.state.answerPlayerAvatar.find(item => item.avatar === newResponse.avatar)
+            let newAnswerPlayerAvatar
                 if (existingResponse){
-                    const newAnswerPlayerAvatar = this.state.answerPlayerAvatar.map(
+                    newAnswerPlayerAvatar = this.state.answerPlayerAvatar.map(
                         item => {
                             if(item.avatar === newResponse.avatar){
                                 return newResponse
@@ -64,13 +65,14 @@ class Items1 extends React.Component{
                             }
                         }
                     )
-                    this.setState({answerPlayerAvatar : newAnswerPlayerAvatar})
+                    
                 }
                 else{
-                    this.state.answerPlayerAvatar.push(newResponse)
+                     newAnswerPlayerAvatar = this.state.answerPlayerAvatar.concat([newResponse])
+                    
                 }
-
-            this.addAvatar();
+                this.setState({answerPlayerAvatar : newAnswerPlayerAvatar})
+            // this.addAvatar();
 
             // console.log("voici le state",this.state);
             // console.log(this.state.answerPlayerAvatar)
@@ -146,17 +148,8 @@ class Items1 extends React.Component{
         //console.log(this.state);
         
         this.setState({choiceArray : []})
-        let table = this.props.quiz.jsonData.slides[indexQuestion].choices.map((item)=>{
-          //console.log(this.buildAvatar(item));
-            ;
-            return(
-
-                <div id={item.text}>
-                <p>{item.text}</p>
-                </div>
-            )
-        })
-        this.setState({choiceArray : table});
+        
+        this.setState({choiceArray : this.props.quiz.jsonData.slides[indexQuestion].choices});
         //console.log(this.state.choiceArray[0].item[0].text);
         this.setState({isQuestChoose: "yes"})
         
@@ -306,7 +299,20 @@ class Items1 extends React.Component{
             <div>
                 <h2>REPONSES</h2>
             </div>
-                    {this.state.choiceArray}
+                    {this.state.choiceArray.map((choice)=>{
+          //console.log(this.buildAvatar(item));
+            ;
+            return(
+
+                <div id={choice.text}>
+                <p>{choice.text}</p>
+                {
+                    this.state.answerPlayerAvatar.filter(item=>item.answer === choice.text)
+                    .map(item=> <img src={item.avatar}/>)
+                }
+                </div>
+            )
+        })}
                     </div>
                     </div>
                     </div>
