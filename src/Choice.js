@@ -39,8 +39,9 @@ class Choice extends React.Component{
             return(
             <div>
                 <p className ="" >{this.props.num.text}</p>
-                <img className="paddingImage"src={require("./"+this.props.num.asset)} onClick={this.choiceClicked =()=>
+                <img  id ={this.props.num.text} src={require("./"+this.props.num.asset)} onClick={this.choiceClicked =()=>
                 {console.log(this.props.num); 
+                    document.getElementById(this.props.num.text).className = "imageClicked"
                     let ReapeatFunct=()=>{
                         if (this.props.clock === 0) {
                             console.log("ok");
@@ -74,8 +75,9 @@ class Choice extends React.Component{
             )
         return (
         <div>
-            <input className ="ficheButton1" type ="button" value={this.props.num.text} onClick={this.choiceClicked =()=>
+            <input id = {this.props.num.text} className ="ficheButton1" type ="button" value={this.props.num.text} onClick={this.choiceClicked =()=>
                 {console.log(this.props.num);
+                    document.getElementById(this.props.num.text).id = "imageClicked"
                     
                         // this.increasePoints(this.props.num.points);
                     

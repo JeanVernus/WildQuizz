@@ -51,7 +51,27 @@ class Items1 extends React.Component{
             // console.log([receivedObj.avatar])
             var newResponse = {"answer":receivedObj.answer, "avatar":receivedObj.avatar }
                 console.log(newResponse);
-            this.state.answerPlayerAvatar.push(newResponse)
+            
+            const existingResponse = this.state.answerPlayerAvatar.find(item => item.avatar === newResponse.avatar)
+                if (existingResponse){
+                    const newAnswerPlayerAvatar = this.state.answerPlayerAvatar.map(
+                        item => {
+                            if(item.avatar === newResponse.avatar){
+                                return newResponse
+                            }
+                            else{
+                                return item
+                            }
+                        }
+                    )
+                    this.setState({answerPlayerAvatar : newAnswerPlayerAvatar})
+                }
+                else{
+                    this.state.answerPlayerAvatar.push(newResponse)
+                }
+
+            this.addAvatar();
+
             // console.log("voici le state",this.state);
             // console.log(this.state.answerPlayerAvatar)
     
@@ -78,39 +98,62 @@ class Items1 extends React.Component{
         }
         var setInterVar = setInterval(subOneSec,1000)
     }
+
+
+        addAvatar=()=>{
+            console.log(this.state.choiceArray[0].props.children.props.children);
+            for(let i = 0; i < this.state.answerPlayerAvatar.length ; i ++){
+                for( let j = 0; j < this.state.choiceArray.length; j ++){
+                    if (this.state.answerPlayerAvatar[i].answer === this.state.choiceArray[j].props.children.props.children){
+                        
+                        // console.log(this.state.answerPlayerAvatar[i].answer);
+                        // console.log(this.state.choiceArray[j].props.children);
+                        let answer = document.getElementById(this.state.answerPlayerAvatar[i].answer)//on récupère l'élément html qui a pour Id la réponse//
+                        //let tagName = answer.getElementById("tailleImageReponse");
+                        //answer.removeChild(tagName)
+                        // console.log(answer);
+                        // console.log(img);
+                        let img = document.createElement("img")
+                        console.log(img);
+                        img.id = "tailleImageReponse"
+                        console.log(img.id);
+                        
+                        img.src = (this.state.answerPlayerAvatar[i].avatar)
+                        console.log(img.src);
+                        
+                        answer.appendChild(img)
+                        
+                
+                    }
+                }
+            }
+            
+        }
+    
     choiceQuestions=()=>{
+        this.setState({answerPlayerAvatar:[]})
         let selectBoxClassName = document.getElementById('optionElt2')
         let selectedValue = parseInt(selectBoxClassName.value);
         // console.log(selectedValue);
         this.setState({choosenQuestions: selectedValue})
-        console.log(selectedValue);
+        //console.log(selectedValue);
         
         this.send(selectedValue)
         this.displayChoices(parseInt(selectedValue))
     }
-    buildAvatar=(myItem)=>{
-        console.log(myItem.text);
-        let avatars = [];
-        this.state.answerPlayerAvatar.map(item => {
-            console.log(item.answer);
-            
-            if(item.answer === myItem.text){
-                avatars.push(item.avatar)
-            }     
-        })
-        console.log(avatars);
-        return "tableau";
-    }
+    
     displayChoices =(indexQuestion)=>{
-        console.log(this.state);
+        //console.log(this.state);
         
         this.setState({choiceArray : []})
         let table = this.props.quiz.jsonData.slides[indexQuestion].choices.map((item)=>{
-          console.log(this.buildAvatar(item));
+          //console.log(this.buildAvatar(item));
             ;
             return(
 
+                <div id={item.text}>
                 <p>{item.text}</p>
+                </div>
             )
         })
         this.setState({choiceArray : table});

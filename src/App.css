@@ -322,3 +322,22 @@ h1{
       .h1{
         padding : 5%;
       }
+      #tailleImageReponse{
+        height: 30px;
+        width : 30px;
+      }
+      .imageClicked{
+        border-width: 5px;
+        border-image: linear-gradient(224deg, #09F5B8, #F5D109, #FB0000) 1;
+        border-style : solid;
+        
+        
+      }
+
+      #imageClicked{
+        border-width: 5px;
+        border-image: linear-gradient(224deg, #09F5B8, #F5D109, #FB0000) 1;
+        border-style : solid;
+        
+        
+      }
