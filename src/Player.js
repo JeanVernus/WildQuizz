@@ -7,6 +7,8 @@ class Player {
         this.avatar  = avatar;
         this.score = score;
     }
+
+    incscore=()=>{this.score++;}
 }
 export default Player
 

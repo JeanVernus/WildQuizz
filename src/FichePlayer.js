@@ -6,6 +6,7 @@ import User from "./User";
 import {ENDPOINT} from "./const"
 import Quiz from "./Quiz";
 import bdd from "./game.json";
+import Swal from "sweetalert2";
 
 
 const DEBUT = 0;
@@ -15,6 +16,7 @@ class FichePlayer extends React.Component{
     constructor(props){
         super(props);
         let imgSrc = "";
+        this.memAnswer = [];
         this.state = {
             imgSrc,
             etat : DEBUT,
@@ -31,6 +33,11 @@ class FichePlayer extends React.Component{
         this.setState({etat:PLAYER});
       }
 
+      updatememanswer=(num,val)=>{
+        console.log(num+ " " +val);
+        
+         this.memAnswer[num].etat=val;
+      }
 
       timer=(value)=>{
         this.setState({count : value})
@@ -46,6 +53,35 @@ class FichePlayer extends React.Component{
             }
             else {
                 clearInterval(setInterVar)
+                console.log("je passe ici");
+                
+                for ( let i = 0 ; i < this.quiz.jsonData.slides[this.state.message.objContent].choices.length; i++ ){
+                  console.log("je passe la"+ i+" "+this.memAnswer[i].etat);
+                  
+                  if (this.memAnswer[i].etat === 1)
+                    if ( this.quiz.jsonData.slides[this.state.message.objContent].choices[i].hasOwnProperty("points")){
+
+                      this.props.source.incscore();
+                        this.setState({count : 0})
+                        Swal.fire({
+                          position : "top",  
+                          type : "success",
+                          title : " Bonne réponse ! ",
+                          showConfirmButton : false,
+                          timer : 1500
+                  })
+                  
+                    }
+                    else{
+                      Swal.fire({
+                        title : "Mauvaise réponse !",
+                        animation : true,
+                        customClass : "animated bounce"
+                    })
+                    }
+
+                }
+
             }
         }
         var setInterVar = setInterval(subOneSec,1000)
@@ -58,6 +94,14 @@ class FichePlayer extends React.Component{
         var receivedObj = JSON.parse(obj);
         this.setState({message : receivedObj})    
         this.setState({isMessageReceived: "yes"})
+        this.memAnswer =[];
+        
+        for (let i = 0 ; i < this.quiz.jsonData.slides[this.state.message.objContent].choices.length; i ++){
+          this.memAnswer.push({
+            "name" : this.quiz.jsonData.slides[this.state.message.objContent].choices[i].text,
+            "etat" : 0,
+          })
+      }
         if (this.state.message.timer==="on"){
             this.setState({receivedTime : this.state.message.timerTime})
             this.timer(this.state.message.timerTime)
@@ -65,13 +109,16 @@ class FichePlayer extends React.Component{
         })
     }
 
-    
     render(){
+  
+    
         if (this.state.etat === PLAYER){
             if (this.state.isMessageReceived === "yes") {
+
+    
               return(
             <div>  
-              <User  key={"User"} time = {this.state.count}quiz={this.quiz} numQuest={this.state.message.objContent} avat ={this.props.source.avatar} nick ={this.props.source.nick} score ={this.props.source.score} />
+              <User  key={"User"} update={this.updatememanswer} time = {this.state.count} quiz={this.quiz} numQuest={this.state.message.objContent} avat ={this.props.source.avatar} nick ={this.props.source.nick} score ={this.props.source.score} memoryAnswer ={ this.memAnswer} />
             </div>
               )}
             if (this.state.isMessageReceived === "no"){

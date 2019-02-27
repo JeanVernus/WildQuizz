@@ -1,44 +1,18 @@
 import React from "react";
 import Choice from "./Choice.js";
-import { log } from "util";
+
 
 class User extends React.Component{
-    constructor(props){
-        super(props);
 
-        this.state={
-            score:0,
-            memoryAnswer: [],
-        }
-    }
-    
-    onUpdateScorePlayer=(score)=>{
-        this.setState({score})
-    }
 
     render(){
         let row = [];
-        let memAnswer = []
         
         
         let pluscourt=this.props.quiz.jsonData.slides[this.props.numQuest];
-        // console.log("ci dessous: ");
-        
-        // console.log(pluscourt);
-
-        
-        
-       
-        for (let i=0; i < pluscourt.choices.length; i ++){
-            row.push (<Choice tableMemAnswer={memAnswer} score={this.state.score} onUpdateScorePlayer={(score) =>this.onUpdateScorePlayer(score)} clock={this.props.time}  key ={i} num={this.props.quiz.jsonData.slides[this.props.numQuest].choices[i]} avatar={this.props.avat} />);
-            memAnswer.push({
-                "name" : this.props.quiz.jsonData.slides[this.props.numQuest].choices[i].text,
-                "etat" : 0,
-
-            })
             
-           
-           
+        for (let i=0; i < pluscourt.choices.length; i ++){
+            row.push (<Choice update={this.props.update} tableMemAnswer={this.props.memoryAnswer} key ={i} num={this.props.quiz.jsonData.slides[this.props.numQuest].choices[i]} avatar={this.props.avat} />);
         }
 
         if (row[0].props.num.hasOwnProperty("asset")) {
@@ -53,7 +27,7 @@ class User extends React.Component{
                 <div class="flex">
                     <div >
                     <h2>{this.props.nick}</h2>
-                     <h2>Score:{this.state.score}</h2>
+                     <h2>Score:{this.props.score}</h2>
                 </div>
                 <div className = "ecran">
                     <h5 className="title1">{this.props.quiz.jsonData.slides[this.props.numQuest].title}</h5>
@@ -73,7 +47,7 @@ class User extends React.Component{
                 <div className="flex">
                     <div >
                     <h2>{this.props.nick}</h2>
-                    <h2>Score:{this.state.score}</h2>
+                    <h2>Score:{this.props.score}</h2>
                 </div>
                 <div className = "ecran1">
                     <h5 className="title1">{this.props.quiz.jsonData.slides[this.props.numQuest].title}</h5>
@@ -93,7 +67,7 @@ class User extends React.Component{
                 <div className="flex">
                     <div>
                      <h2>{this.props.nick}</h2>
-                     <h2>Score:{this.state.score}</h2>
+                     <h2>Score:{this.props.score}</h2>
                 </div>
                 <div className = " ecran">
                 <h5 className="title1">{this.props.quiz.jsonData.slides[this.props.numQuest].title}</h5>
@@ -113,7 +87,7 @@ class User extends React.Component{
             <div className="flex">
             <div>
             <h2>{this.props.nick}</h2>
-            <h2>Score:{this.state.score}</h2>
+            <h2>Score:{this.props.score}</h2>
             </div>  
             <div className = "ecran1">
             <p className="title1">{this.props.quiz.jsonData.slides[this.props.numQuest].title}</p>

@@ -17,8 +17,13 @@ constructor(props) {
   this.getAvatar = this.getAvatar.bind(this)
   let displaySucess = defaut;
   this.state={displaySucess};
-  let displayFiche = defaut;
-  this.state={displayFiche};
+  
+  this.state={
+    displayFiche: defaut,
+    classPlayer : "",
+
+  classInitialised: 0
+};
   let globalPseud = "";
   this.state={globalPseud}
   
@@ -54,6 +59,9 @@ getAvatar(){
 }
 redirectFiche=()=>{
   console.log("ok");
+  var player = new Player(this.state.globalPseud, this.state.avatar, 0)
+  this.setState({classPlayer : player})
+      console.log("je suis passé la");
    
   this.setState({displayFiche: activated});
   
@@ -67,7 +75,14 @@ render(){
 
   
     if (this.state.displayFiche === activated){
-      let player = new Player(this.state.globalPseud, this.state.avatar, 0)
+      
+       
+      
+     
+      
+      
+
+      
       return(
        <div>
           <div>
@@ -94,9 +109,10 @@ render(){
     </h3> 
       </footer>
       </div>
-        <FichePlayer key={"FichePlayer"} source ={player} />
+        <FichePlayer key={"FichePlayer"} source ={this.state.classPlayer} />
         </div>
       )
+      
     }
     if (this.state.displaySucess === activated){
      

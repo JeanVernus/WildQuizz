@@ -309,7 +309,7 @@ class Items1 extends React.Component{
                 <p>{choice.text}</p>
                 {
                     this.state.answerPlayerAvatar.filter(item=>item.answer === choice.text)
-                    .map(item=> <img id = "tailleImageReponse"src={item.avatar}/>)
+                    .map(item=> <img id = "tailleImageReponse"src={item.avatar} alt  = ""/>)
                 }
                 </div>
             )

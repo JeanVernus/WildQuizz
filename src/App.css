@@ -273,7 +273,7 @@ h1{
         color : black;
       }
       .cssChoice{
-       
+        margin-bottom : 10%;
         margin-left: 25%;
         border : 3px double #f68a6a;
         background: rgb(240, 240, 240);
