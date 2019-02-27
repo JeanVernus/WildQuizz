@@ -7,6 +7,7 @@ import MessToSend from "./MessToSend";
 import Items1 from "./Items1";
 import socketIOClient from "socket.io-client";
 import {ENDPOINT} from "./const";
+import "./App.css";
 
 
 const DEBUT = 0;
@@ -99,8 +100,8 @@ class App extends Component {
           </footer>
       <div className="div-button">
             
-            <input className="hvr-bob" value="PLAYER" type="button" onClick ={this.choicePlayers}/>
-            <input className="hvr-bob" value="MASTER" type="button"onClick ={this.redirectItem}/>
+            <input className="hvr-bob" value="Joueurs" type="button" onClick ={this.choicePlayers}/>
+            <input className="hvr-bob" value="Master" type="button"onClick ={this.redirectItem}/>
 
           </div>
       </div>

@@ -273,14 +273,14 @@ h1{
         color : black;
       }
       .cssChoice{
-        margin-top: auto;
-        margin-bottom: auto;
-        margin-left: 15%;
+       
+        margin-left: 25%;
         border : 3px double #f68a6a;
         background: rgb(240, 240, 240);
         font-size : 20px;
         color : #f68a6a;
-
+        text-align : center;
+        box-shadow: -8px 15px 50px black;
 
       }
       .cssChoiceQuestions{
@@ -323,8 +323,11 @@ h1{
         padding : 5%;
       }
       #tailleImageReponse{
-        height: 30px;
-        width : 30px;
+        height: 50px;
+        width : 50px;
+        border-radius : 50%;
+        border : 2px solid black
+      
       }
       .imageClicked{
         border-width: 5px;
@@ -336,4 +339,7 @@ h1{
         border-width: 5px;
         border-image: linear-gradient(224deg, #09F5B8, #F5D109, #FB0000) 1;
         border-style : solid;
+      }
+      option{
+        justify-content: center
       }

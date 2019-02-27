@@ -270,6 +270,7 @@ class Items1 extends React.Component{
           <div className ="flex1">
     <div className ="displayHorloge">
                 <select onChange={this.timerChange}id="boxTime">
+                    <option>Lancer timer</option>
                     <option>60 secondes</option>
                     <option>50 secondes</option>
                     <option>40 secondes</option>
@@ -277,20 +278,20 @@ class Items1 extends React.Component{
                     <option>20 secondes</option>
                     <option>10 secondes</option> 
                 </select>
-                <h4 className = "horloge1"><br /> 00:{this.state.count}</h4>
+                <h4 className = "horloge1"><br />{this.state.count}</h4>
     </div>
     <div className="cssChoiceQuestions">
     <div className="cssJustChoices">
     <select onChange ={this.choiceGame} id="optionElt" className="">
-                    <option>GAMES</option>
+                    <option>Modes de jeux</option>
                         {this.state.tableGamesState}
                 </select><br /><br />
                 <select onChange ={this.choiceSteps} id="optionElt1" className="">
-                    <option>STEPS</option>
+                    <option>Thèmes</option>
                         {this.state.tableStepState}
                 </select><br /><br />
                 <select  onChange ={this.choiceQuestions} id="optionElt2"className="">
-                    <option>QUESTIONS</option>
+                    <option>Questions</option>
                         {this.state.tableQuestionsState}
                 </select>
     </div>
@@ -308,7 +309,7 @@ class Items1 extends React.Component{
                 <p>{choice.text}</p>
                 {
                     this.state.answerPlayerAvatar.filter(item=>item.answer === choice.text)
-                    .map(item=> <img src={item.avatar}/>)
+                    .map(item=> <img id = "tailleImageReponse"src={item.avatar}/>)
                 }
                 </div>
             )
@@ -351,7 +352,8 @@ class Items1 extends React.Component{
           </footer>
             <div className ="flex1">
     <div className ="displayHorloge">
-                <select onChange={this.timerChange}id="boxTime">
+                <select className="centerText"onChange={this.timerChange}id="boxTime">
+                    <option>Lancer timer</option>
                     <option>60 secondes</option>
                     <option>50 secondes</option>
                     <option>40 secondes</option>
@@ -359,19 +361,19 @@ class Items1 extends React.Component{
                     <option>20 secondes</option>
                     <option>10 secondes</option> 
                 </select>
-                <h4 className = "horloge1"><br /> 00:{this.state.count}</h4>
+                <h4 className = "horloge1"><br />{this.state.count}</h4>
     </div>
     <div>
-                <select onChange ={this.choiceGame} id="optionElt" className="">
-                    <option>GAMES</option>
+                <select className="centerText"onChange ={this.choiceGame} id="optionElt" >
+                    <option>Modes de jeux</option>
                         {this.state.tableGamesState}
                 </select><br /><br />
-                <select onChange ={this.choiceSteps} id="optionElt1" className="">
-                    <option>STEPS</option>
+                <select className="centerText"onChange ={this.choiceSteps} id="optionElt1">
+                    <option>Thèmes</option>
                         {this.state.tableStepState}
                 </select><br /><br />
-                <select  onChange ={this.choiceQuestions} id="optionElt2"className="">
-                    <option>QUESTIONS</option>
+                <select className="centerText" onChange ={this.choiceQuestions} id="optionElt2">
+                    <option>Questions</option>
                         {this.state.tableQuestionsState}
                 </select>
     </div>

@@ -80,7 +80,7 @@ render(){
           <span>uiz</span>
           </h1>
     </header>
-          <h1 className = "title"> PLAYER</h1>
+          <h1 className = "title"> Joueur</h1>
     
   <div>
 
@@ -127,7 +127,7 @@ render(){
       </footer>
   
         <div id="boxValidate"><h4 id="txtGetAvatar">Avatar récupéré avec succès</h4>
-        <div className="div-button"> <input className="authButton"type="button" onClick={this.redirectFiche} value="Afficher la fiche player"/></div></div>
+        <div className="div-button"> <input className="authButton"type="button" onClick={this.redirectFiche} value="Afficher la fiche joueur"/></div></div>
         </div>
       )
     }

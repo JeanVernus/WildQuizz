@@ -1,5 +1,6 @@
 import React from "react";
 import Choice from "./Choice.js";
+import { log } from "util";
 
 class User extends React.Component{
     constructor(props){
@@ -7,6 +8,7 @@ class User extends React.Component{
 
         this.state={
             score:0,
+            memoryAnswer: [],
         }
     }
     
@@ -16,6 +18,7 @@ class User extends React.Component{
 
     render(){
         let row = [];
+        let memAnswer = []
         
         
         let pluscourt=this.props.quiz.jsonData.slides[this.props.numQuest];
@@ -27,11 +30,23 @@ class User extends React.Component{
         
        
         for (let i=0; i < pluscourt.choices.length; i ++){
-            row.push (<Choice score={this.state.score} onUpdateScorePlayer={(score) =>this.onUpdateScorePlayer(score)} clock={this.props.time}  key ={i} num={this.props.quiz.jsonData.slides[this.props.numQuest].choices[i]} avatar={this.props.avat} />);
-        }
-        if (row[0].props.num.hasOwnProperty("asset")) {
-            if (this.props.quiz.jsonData.slides[this.props.numQuest].hasOwnProperty("asset")){
+            row.push (<Choice tableMemAnswer={memAnswer} score={this.state.score} onUpdateScorePlayer={(score) =>this.onUpdateScorePlayer(score)} clock={this.props.time}  key ={i} num={this.props.quiz.jsonData.slides[this.props.numQuest].choices[i]} avatar={this.props.avat} />);
+            memAnswer.push({
+                "name" : this.props.quiz.jsonData.slides[this.props.numQuest].choices[i].text,
+                "etat" : 0,
 
+            })
+            
+           
+           
+        }
+
+        if (row[0].props.num.hasOwnProperty("asset")) {
+            
+            if (this.props.quiz.jsonData.slides[this.props.numQuest].hasOwnProperty("asset")){
+                
+                
+               
 
             
             return  (
@@ -49,7 +64,7 @@ class User extends React.Component{
                 </div>
                 </div>
                 </div>
-                <h4 className ="horloge"><br />00 : {this.props.time}</h4>
+                <h4 className ="horloge"><br />{this.props.time}</h4>
                 </div>
                     )
             }
@@ -68,11 +83,12 @@ class User extends React.Component{
                 </div>
                 </div>
                 </div>
-                <h4 className ="horloge"><br />00 : {this.props.time}</h4>
+                <h4 className ="horloge"><br />{this.props.time}</h4>
             </div>
             )
         }
         if (this.props.quiz.jsonData.slides[this.props.numQuest].hasOwnProperty("asset")){
+          
             return  (
                 <div className="flex">
                     <div>
@@ -88,7 +104,7 @@ class User extends React.Component{
             </div>
             </div>
             </div>
-            <h4 className ="horloge"><br />00 : {this.props.time}</h4>
+            <h4 className ="horloge"><br />{this.props.time}</h4>
             </div>
                     )   
         }
@@ -107,7 +123,7 @@ class User extends React.Component{
             </div>
              </div>
             </div>
-            <h4 className ="horloge"><br />00 : {this.props.time}</h4>
+            <h4 className ="horloge"><br />{this.props.time}</h4>
         </div>
                )
     }
